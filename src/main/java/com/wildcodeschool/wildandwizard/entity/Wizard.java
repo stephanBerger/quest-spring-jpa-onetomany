@@ -1,80 +1,95 @@
 package com.wildcodeschool.wildandwizard.entity;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Wizard {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private Date birthday;
-    private String birthPlace;
-    private String biography;
-    private boolean muggle;
+	@ManyToOne
+	@JoinColumn(name = "school_id")
+	private School school;
 
-    public Wizard() {
-    }
+	public School getSchool() {
+		return school;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setSchool(School school) {
+		this.school = school;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String firstName;
+	private String lastName;
+	private Date birthday;
+	private String birthPlace;
+	private String biography;
+	private boolean muggle;
 
-    public String getFirstName() {
-        return firstName;
-    }
+	public Wizard() {
+	}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public Date getBirthday() {
-        return birthday;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public String getBirthPlace() {
-        return birthPlace;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public void setBirthPlace(String birthPlace) {
-        this.birthPlace = birthPlace;
-    }
+	public Date getBirthday() {
+		return birthday;
+	}
 
-    public String getBiography() {
-        return biography;
-    }
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
 
-    public void setBiography(String biography) {
-        this.biography = biography;
-    }
+	public String getBirthPlace() {
+		return birthPlace;
+	}
 
-    public boolean isMuggle() {
-        return muggle;
-    }
+	public void setBirthPlace(String birthPlace) {
+		this.birthPlace = birthPlace;
+	}
 
-    public void setMuggle(boolean muggle) {
-        this.muggle = muggle;
-    }
+	public String getBiography() {
+		return biography;
+	}
+
+	public void setBiography(String biography) {
+		this.biography = biography;
+	}
+
+	public boolean isMuggle() {
+		return muggle;
+	}
+
+	public void setMuggle(boolean muggle) {
+		this.muggle = muggle;
+	}
 }
